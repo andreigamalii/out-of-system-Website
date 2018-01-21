@@ -1,0 +1,462 @@
+$font-weight-fat: 600;
+$font-weight-thin: 300;
+
+body {
+  margin: 0;
+  font-family: "Fira Code", sans-serif;
+  width: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* "navigation-bar" */
+
+
+.navbar {
+  overflow: hidden;
+  background: black;
+  a {
+    float: left;
+    font-size: 16px;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  .navbar-left:hover span {
+    background-color: #53e3fb;
+    transition: 1s;
+  }
+
+  .navbar-left:hover .logo  {
+    color: #53e3fb;
+    transition: 1s;
+  }
+}
+
+
+
+.dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 14px 14px 19px;
+  background-color: inherit;
+}
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropbtn:hover {
+  background-color: #53e3fb;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content {
+  right: 0;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  a {
+    float: none;
+    color: black;
+    padding: 12px 30px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+}
+
+.show {
+  display:block;
+}
+
+.logo {
+  text-transform: uppercase;
+  text-decoration: none;
+  color: white;
+  font-weight: $font-weight-fat;
+  letter-spacing: 4px;
+  font-size: 14px;
+}
+
+
+.inf {
+  padding: 5px 0 5px 5px;
+  background: white;
+  color: black;
+}
+
+
+
+
+/* "intro" section */
+.intro .intro-block {
+  width: 100%;
+  margin: auto;
+  padding: 200px 100px;
+}
+%bg-fixed-norepeat-cc {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 600px;
+}
+.intro {
+  @extend %bg-fixed-norepeat-cc;
+  color: white;
+  h1 {
+    border-bottom: 2px solid white;
+    padding-bottom: 30px;
+    color: white;
+    font-weight: $font-weight-fat;
+    letter-spacing: 0.466667px;
+    font-size: 55px;
+  }
+  p {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: $font-weight-thin;
+    color: white;
+    margin-right: 30px;
+    display: inline-block;
+  }
+}
+
+.fade {
+  @extend %bg-fixed-norepeat-cc;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* section "photo-lines" with 3 rows of pictures */
+
+.photo-lines {
+  overflow: auto;
+}
+
+.photo-row {
+  width: 100%;
+}
+
+/* photo-text styles */
+
+.photo-text {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+  font-weight: $font-weight-fat;
+  z-index: 1;
+  h3 {
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: $font-weight-fat;
+    letter-spacing: 0.5px;
+  }
+}
+
+
+/* picture 1 */
+%pic {
+  background-size: cover;
+  height: 55vh;
+  position: relative;
+  width: 50%;
+  float: left;
+}
+
+%overlay {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  transition: opacity .3s linear;
+}
+
+.pic-one {
+  @extend %pic;
+  background-image: url("../img/4466613035_34f9cb8b38.jpg");
+  float: left;
+}
+.img-overlay {
+  @extend %overlay;
+  background: #6fc3df;
+}
+.photo-text:hover{
+  cursor: pointer;
+}
+.img-overlay:hover, .img-overlay-two:hover, .img-overlay-three:hover, .img-overlay-four:hover, .img-overlay-five:hover, .img-overlay-six:hover {
+  opacity: 0;
+  transition: opacity .3s linear; /* can also try other values such as ease, ease-out etc. */
+}
+
+.pic-one:hover > .img-overlay, .pic-two:hover > .img-overlay-two, .pic-three:hover > .img-overlay-three, .pic-four:hover > .img-overlay-four,
+.pic-five:hover > .img-overlay-five, .pic-six:hover > .img-overlay-six {
+  transition: opacity .5s ease-in-out;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* picture 2 */
+.pic-two {
+  @extend %pic;
+  background-image: url("../img/es.jpg");
+  float: right;
+}
+
+.img-overlay-two {
+  @extend %overlay;
+  background: #8d82c4;;
+}
+
+/* picture 3 */
+.pic-three {
+  @extend %pic;
+  background-image: url("../img/cm.png");
+  float: left;
+}
+
+.img-overlay-three {
+  @extend %overlay;
+  background: #ec8d81;
+}
+
+/* picture 4 */
+.pic-four {
+  @extend %pic;
+  background-image: url("../img/de.jpg");
+  float: right;
+}
+
+.img-overlay-four {
+  @extend %overlay;
+  background: #e7b788;;
+}
+
+/* picture 5 */
+.pic-five {
+  @extend %pic;
+  background-image: url("../img/gg.jpg");
+  float: left;
+}
+
+.img-overlay-five {
+  @extend %overlay;
+  background: #8ea9e8;
+}
+
+/* picture 6 */
+.pic-six {
+  @extend %pic;
+  background-image: url("../img/japb.jpg");
+  float: right;
+}
+
+.img-overlay-six {
+  @extend %overlay;
+  background: #87c5a4;
+}
+
+/* "some_text" section */
+.some_text {
+  text-align: left;
+  padding: 120px;
+  background-color: rgba(0, 0, 0, 0.9);
+  .some_text_inside {
+    width: 100%;
+    color: white;
+  }
+  p {
+    margin: 0;
+    font-weight: 300;
+    line-height: 30.8px;
+    font-size: 20px;
+  }
+}
+
+/* footer */
+
+footer {
+  background-color: black;
+  .footer-links {
+    text-align: center;
+    ul {
+      padding: 50px;
+      margin: 0;
+    }
+    li {
+      margin: 0;
+      display: inline-block;
+      color: rgba(244, 244, 255, 0.2);
+      font-size: 0.8em;
+      font-weight: $font-weight-thin;
+      letter-spacing: 0.025em;
+      padding:0 10px 0 4px;
+    }
+    a {
+      margin: 0;
+      color: rgba(244, 244, 255, 0.2);
+      text-decoration: none;
+      &:hover {
+        @extend %hover-links;
+      }
+    }
+  }
+}
+
+%hover-links {
+  color: #53e3fb;
+  border: none;
+  -webkit-transition: 1s;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  transition: 1s;
+}
+.contacts a:hover {
+@extend %hover-links;
+}
+
+
+.assange h1, .snowden h1, .manning h1, .ellsberg h1, .glgr h1, .appb h1 {
+  font-size: 32px;
+  margin: 30px 30px 10px 30px;
+}
+
+.assange, .snowden, .manning, .ellsberg, .glgr, .appb {
+  margin: 50px 120px 50px 120px;
+}
+
+.assange p, .snowden p, .manning p, .ellsberg p, .glgr p, .appb p {
+  line-height: 40px;
+  font-size: 19px;
+  margin: 0 30px;
+}
+
+.assange h2, .snowden h2, .manning h2, .ellsberg h2, .glgr h2, .appb h2 {
+  margin: 15px 30px 10px 30px;
+}
+
+.assange img, .snowden img, .manning img, .ellsberg img, .glgr img, .appb img {
+  float: left;
+  padding: 0 30px 10px 30px;
+  max-width:100%;
+  height: auto;
+}
+
+
+
+@media (max-width: 420px) {
+  .some_text {
+    padding: 10px;
+  }
+  .intro-block,.intro, .fade {
+    height: auto;
+  }
+  .intro .intro-block {
+    margin: auto;
+    padding: 20px;
+  }
+  .intro h1 {
+    text-align: center;
+  }
+  .photo-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-weight: $font-weight-fat;
+    z-index: 1;
+  }
+  .pic-one, .pic-two, .pic-three, .pic-four, .pic-five, .pic-six {
+    width: 100%;
+    height: 50vh;
+    background-position: center;
+  }
+
+  .assange, .snowden, .manning, .ellsberg, .glgr, .appb {
+    margin: 50px 20px 50px 20px;
+  }
+
+  .assange p, .snowden p, .manning p, .ellsberg p, .glgr p, .appb p {
+    font-size: 19px;
+  }
+  .assange img, .snowden img, .manning img, .ellsberg img, .glgr img, .appb img {
+    max-width: 100%;
+    margin-bottom: 30px;
+  }
+  .assange h1, .snowden h1, .manning h1, .ellsberg h1, .glgr h1, .appb h1 {
+    margin: 30px;
+  }
+}
+
+
+@media (min-width: 425px) and (max-width: 1024px) {
+  .intro-block,.intro, .fade {
+    height: auto;
+  }
+  .intro .intro-block {
+    margin: auto;
+    padding: 20px;
+  }
+
+  .some_text {
+    padding: 20px;
+  }
+  .pic-one, .pic-two, .pic-three, .pic-four, .pic-five, .pic-six {
+    background-position: center;
+  }
+}
+
+@media (min-width: 1030px) and (max-width: 1440px) {
+  .intro-block,.intro, .fade {
+    height: auto;
+  }
+
+  .intro p {
+    margin-top: 0;
+    font-size: 30px;
+    font-weight: $font-weight-thin;
+    color: white;
+    margin-right: 30px;
+    display: inline-block;
+  }
+
+  .some_text_inside p {
+    margin: 0;
+    font-weight: $font-weight-thin;
+    line-height: 60.8px;
+    font-size: 30px;
+  }
+  .pic-one, .pic-two, .pic-three, .pic-four, .pic-five, .pic-six {
+    background-position: center;
+
+  }
+}
+@media (min-width: 1500px) {
+  .pic-one, .pic-two, .pic-three, .pic-four, .pic-five, .pic-six {
+    background-position: center;
+    height: 70vh;
+  }
+  .some_text_inside p {
+    margin: 0;
+    font-weight: $font-weight-thin;
+    line-height: 60.8px;
+    font-size: 50px;
+  }
+}
+
